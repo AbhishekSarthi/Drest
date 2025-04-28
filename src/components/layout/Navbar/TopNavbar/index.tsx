@@ -77,15 +77,6 @@ const TopNavbar = () => {
           <div className="block md:hidden mr-4">
             <ResTopNavbar data={data} />
           </div>
-          <Link
-            href="/"
-            className={cn([
-              integralCF.className,
-              "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10",
-            ])}
-          >
-            DREST.CO
-          </Link>
         </div>
         <NavigationMenu className="hidden md:flex mr-2 lg:mr-7">
           <NavigationMenuList>
@@ -101,7 +92,7 @@ const TopNavbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <InputGroup className="hidden md:flex bg-[#F0F0F0] mr-3 lg:mr-10">
+        <InputGroup className="md:flex bg-[#F0F0F0] mr-3 lg:mr-10">
           <InputGroup.Text>
             <Image
               priority
@@ -120,16 +111,6 @@ const TopNavbar = () => {
           />
         </InputGroup>
         <div className="flex items-center">
-          <Link href="/search" className="block md:hidden mr-[14px] p-1">
-            <Image
-              priority
-              src="/icons/search-black.svg"
-              height={100}
-              width={100}
-              alt="search"
-              className="max-w-[22px] max-h-[22px]"
-            />
-          </Link>
           <CartBtn />
           <Link href="/#signin" className="p-1">
             <Image
