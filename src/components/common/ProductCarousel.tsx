@@ -52,7 +52,7 @@ export default function ProductCarousel() {
   const handlers = useSwipeable({
     onSwipedLeft: () => prevSlide(),
     onSwipedRight: () => nextSlide(),
-    preventDefaultTouchmoveEvent: true,
+    preventScrollOnSwipe: true,
     trackMouse: true, // also allows dragging on desktop
   });
 
