@@ -1,9 +1,12 @@
 import ProductCarousel from "@/components/common/ProductCarousel";
 import ProductListSec from "@/components/common/ProductListSec";
 
+import type { AppProps } from "next/app";
+// import { AuthProvider } from "@/context/AuthContext";
 import DressStyle from "@/components/homepage/DressStyle";
 import Header from "@/components/homepage/Header";
 import Reviews from "@/components/homepage/Reviews";
+import { AuthProvider } from "@/context/AuthContext";
 import { Product } from "@/types/product.types";
 import { Review } from "@/types/review.types";
 
@@ -206,32 +209,35 @@ export const reviewsData: Review[] = [
   },
 ];
 
-export default function Home() {
+export default function Home({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
-      <main className="my-[50px] sm:my-[72px]">
-        {/* <ProductListSec
+      <AuthProvider>
+        <Component {...pageProps} />
+        <Header />
+        <main className="my-[50px] sm:my-[72px]">
+          {/* <ProductListSec
           title="NEW ARRIVALS"
           data={newArrivalsData}
           viewAllLink="/shop#new-arrivals"
         /> */}
-        <ProductCarousel />
-        <div className="max-w-frame mx-auto px-4 xl:px-0">
-          <hr className="h-[1px] border-t-black/10 my-10 sm:my-16" />
-        </div>
-        <div className="mb-[50px] sm:mb-20">
-          <ProductListSec
-            title="top selling"
-            data={topSellingData}
-            viewAllLink="/shop#top-selling"
-          />
-        </div>
-        <div className="mb-[50px] sm:mb-20">
-          <DressStyle />
-        </div>
-        <Reviews data={reviewsData} />
-      </main>
+          <ProductCarousel />
+          <div className="max-w-frame mx-auto px-4 xl:px-0">
+            <hr className="h-[1px] border-t-black/10 my-10 sm:my-16" />
+          </div>
+          <div className="mb-[50px] sm:mb-20">
+            <ProductListSec
+              title="top selling"
+              data={topSellingData}
+              viewAllLink="/shop#top-selling"
+            />
+          </div>
+          <div className="mb-[50px] sm:mb-20">
+            <DressStyle />
+          </div>
+          <Reviews data={reviewsData} />
+        </main>
+      </AuthProvider>
     </>
   );
 }

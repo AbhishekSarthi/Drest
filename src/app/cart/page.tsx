@@ -13,8 +13,9 @@ import React from "react";
 import { RootState } from "@/lib/store";
 import { useAppSelector } from "@/lib/hooks/redux";
 import Link from "next/link";
+import withAuth from "@/components/withAuth";
 
-export default function CartPage() {
+function CartPage() {
   const { cart, totalPrice, adjustedTotalPrice } = useAppSelector(
     (state: RootState) => state.carts
   );
@@ -121,3 +122,5 @@ export default function CartPage() {
     </main>
   );
 }
+
+export default withAuth(CartPage);
